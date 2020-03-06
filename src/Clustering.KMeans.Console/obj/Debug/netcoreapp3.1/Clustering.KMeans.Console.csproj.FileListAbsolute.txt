@@ -1,0 +1,11 @@
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\bin\Debug\netcoreapp3.1\Clustering.KMeans.Console.exe
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\bin\Debug\netcoreapp3.1\Clustering.KMeans.Console.deps.json
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\bin\Debug\netcoreapp3.1\Clustering.KMeans.Console.runtimeconfig.json
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\bin\Debug\netcoreapp3.1\Clustering.KMeans.Console.runtimeconfig.dev.json
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\bin\Debug\netcoreapp3.1\Clustering.KMeans.Console.dll
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\bin\Debug\netcoreapp3.1\Clustering.KMeans.Console.pdb
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\obj\Debug\netcoreapp3.1\Clustering.KMeans.Console.csprojAssemblyReference.cache
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\obj\Debug\netcoreapp3.1\Clustering.KMeans.Console.AssemblyInfoInputs.cache
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\obj\Debug\netcoreapp3.1\Clustering.KMeans.Console.AssemblyInfo.cs
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\obj\Debug\netcoreapp3.1\Clustering.KMeans.Console.dll
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\obj\Debug\netcoreapp3.1\Clustering.KMeans.Console.pdb

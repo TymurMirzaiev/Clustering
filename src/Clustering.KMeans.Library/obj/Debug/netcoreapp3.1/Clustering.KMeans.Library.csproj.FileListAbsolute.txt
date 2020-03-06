@@ -1,0 +1,8 @@
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Library\bin\Debug\netcoreapp3.1\Clustering.KMeans.Library.deps.json
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Library\bin\Debug\netcoreapp3.1\Clustering.KMeans.Library.dll
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Library\bin\Debug\netcoreapp3.1\Clustering.KMeans.Library.pdb
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Library\obj\Debug\netcoreapp3.1\Clustering.KMeans.Library.AssemblyInfoInputs.cache
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Library\obj\Debug\netcoreapp3.1\Clustering.KMeans.Library.AssemblyInfo.cs
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Library\obj\Debug\netcoreapp3.1\Clustering.KMeans.Library.dll
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Library\obj\Debug\netcoreapp3.1\Clustering.KMeans.Library.pdb
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Library\obj\Debug\netcoreapp3.1\Clustering.KMeans.Library.csprojAssemblyReference.cache
