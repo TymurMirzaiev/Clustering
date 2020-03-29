@@ -2,8 +2,8 @@
 using System.IO;
 using Clustering.KMeans.Library;
 using Clustering.KMeans.Library.Data;
+using Clustering.KMeans.Library.Data.Contracts;
 using Clustering.KMeans.Library.MethodInitializations;
-using System.Resources;
 
 namespace Clustering.KMeans.ConsoleApp
 {
@@ -11,10 +11,14 @@ namespace Clustering.KMeans.ConsoleApp
     {
         static void Main(string[] args)
         {
-            string folder  = ".\\..\\..\\..\\Data";
+            #region Combine path
+
+            string folder = ".\\..\\..\\..\\Data";
             string fileName = "example.xlsx";
             string path = Path.Combine(folder, fileName);
 
+            #endregion
+            
             IKMeansBuilder kMeansBuilder = new KMeansBuilder();
             IKMeans kMeans;
 
@@ -23,10 +27,22 @@ namespace Clustering.KMeans.ConsoleApp
                         .SetNumberOfClusters(2)
                         .Build();
 
-            IDataView<Temperatures> data = DataReader.ReadDataFromExcel<Temperatures>(path);
-            //kMeans.fit(data);
+            Library.Data.Contracts.IDataView data = DataReaderExcel.ReadDataFromExcel(
+                                                path: path,
+                                                hasHeader: true,
+                                                worksheet: 3,
+                                                startColumn: 2);
 
+            var clustered  = kMeans.FitPredict(data);
+            
+            foreach(var element in clustered)
+            {
+                Console.WriteLine(element);
+            }
+           
 
+            Console.Read();
         }
+
     }
 }

@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clustering.KMeans.ConsoleApp", "src\Clustering.KMeans.Console\Clustering.KMeans.ConsoleApp.csproj", "{D74CB365-74C0-4181-A437-4B4E56D25E0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clustering.KMeans.ConsoleApp", "src\Clustering.KMeans.Console\Clustering.KMeans.ConsoleApp.csproj", "{D74CB365-74C0-4181-A437-4B4E56D25E0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clustering.KMeans.Library", "src\Clustering.KMeans.Library\Clustering.KMeans.Library.csproj", "{63292366-F0FB-46BE-9CCE-138109F37EB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clustering.KMeans.Library", "src\Clustering.KMeans.Library\Clustering.KMeans.Library.csproj", "{63292366-F0FB-46BE-9CCE-138109F37EB7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BF6ABB10-548F-4757-925A-806EA689CC47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clustering.API", "src\Clustering.API\Clustering.API.csproj", "{3FDCB4E1-21E0-4D3F-AE99-99DE578DFEB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{63292366-F0FB-46BE-9CCE-138109F37EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63292366-F0FB-46BE-9CCE-138109F37EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63292366-F0FB-46BE-9CCE-138109F37EB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FDCB4E1-21E0-4D3F-AE99-99DE578DFEB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FDCB4E1-21E0-4D3F-AE99-99DE578DFEB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FDCB4E1-21E0-4D3F-AE99-99DE578DFEB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FDCB4E1-21E0-4D3F-AE99-99DE578DFEB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D74CB365-74C0-4181-A437-4B4E56D25E0C} = {BF6ABB10-548F-4757-925A-806EA689CC47}
 		{63292366-F0FB-46BE-9CCE-138109F37EB7} = {BF6ABB10-548F-4757-925A-806EA689CC47}
+		{3FDCB4E1-21E0-4D3F-AE99-99DE578DFEB7} = {BF6ABB10-548F-4757-925A-806EA689CC47}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E14B9152-CE8D-45EB-BD7F-1C7114A8A3AB}

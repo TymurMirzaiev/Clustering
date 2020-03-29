@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/Clustering
+/src/Clustering.API/bin/Debug/netcoreapp3.1
+/src/Clustering.API/obj/Debug/netcoreapp3.1
+/src/Clustering.API/obj
+/src/Clustering.API/Properties

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Clustering.KMeans.Library.MethodInitializations;
+﻿using Clustering.KMeans.Library.MethodInitializations;
 
 namespace Clustering.KMeans.Library
 {
@@ -17,7 +14,7 @@ namespace Clustering.KMeans.Library
 
         public IKMeans Build()
         {
-            return new KMeans();
+            return _kMeans;
         }
 
         public IKMeansBuilder Init(IMethodInitialization initialization)
@@ -30,13 +27,6 @@ namespace Clustering.KMeans.Library
         public IKMeansBuilder SetNumberOfClusters(int numberOfClusters)
         {
             _kMeans.NumberOfClusters = numberOfClusters;
-
-            return this;
-        }
-
-        public IKMeansBuilder MethodInitialization(IMethodInitialization initialization)
-        {
-            _kMeans.MethodInitialization = initialization;
 
             return this;
         }

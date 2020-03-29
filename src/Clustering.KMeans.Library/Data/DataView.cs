@@ -1,16 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using Clustering.KMeans.Library.Data.Contracts;
 
 namespace Clustering.KMeans.Library.Data
 {
-    public class DataView<T> : IDataView<T>
+    public class DataView : IDataView
     {
-        public IEnumerable<T> Data { get; set; }
+        public string[] Columns { get; set; }
+        public float[,] Rows { get; set; }
 
-        public DataView(IEnumerable<T> data)
+        public DataView(Contracts.IDataView dataView)
         {
-            Data = data;
+            this.Columns = dataView.Columns;
+            this.Rows = dataView.Rows;
+        }
+
+        public DataView(string[] columnNames, float[,] data)
+        {
+            Columns = columnNames;
+            Rows = data;
         }
     }
 }

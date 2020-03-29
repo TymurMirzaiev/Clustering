@@ -30,3 +30,5 @@ C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\obj\Debug\n
 C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\obj\Debug\netcoreapp3.1\Clustering.KMeans.ConsoleApp.csproj.CopyComplete
 C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\obj\Debug\netcoreapp3.1\Clustering.KMeans.ConsoleApp.dll
 C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\obj\Debug\netcoreapp3.1\Clustering.KMeans.ConsoleApp.pdb
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\obj\Debug\netcoreapp3.1\Clustering.KMeans.ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\timur\source\repos\Clustering\src\Clustering.KMeans.Console\obj\Debug\netcoreapp3.1\Clustering.KMeans.ConsoleApp.genruntimeconfig.cache

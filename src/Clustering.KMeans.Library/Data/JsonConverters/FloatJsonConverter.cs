@@ -4,11 +4,11 @@ using Newtonsoft.Json.Linq;
 
 namespace Clustering.KMeans.Library.Data.JsonConverters
 {
-    public class DoubleJsonConverter : JsonConverter
+    public class FloatJsonConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {
-            return (objectType == typeof(double) || objectType == typeof(double?));
+            return (objectType == typeof(float) || objectType == typeof(float?));
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -16,12 +16,12 @@ namespace Clustering.KMeans.Library.Data.JsonConverters
             JToken token = JToken.Load(reader);
             if (token.Type == JTokenType.Float || token.Type == JTokenType.Integer)
             {
-                return token.ToObject<double>();
+                return token.ToObject<float>();
             }
             if (token.Type == JTokenType.String)
             {
                 // customize this to suit your needs
-                return Double.Parse(token.ToString());
+                return float.Parse(token.ToString());
             }
             if (token.Type == JTokenType.Null && objectType == typeof(double?))
             {
