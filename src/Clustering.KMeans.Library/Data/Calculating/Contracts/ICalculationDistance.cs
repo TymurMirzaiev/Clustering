@@ -6,6 +6,6 @@ namespace Clustering.KMeans.Library.Data.Calculating.Contracts
 {
     public interface ICalculationDistance
     {
-        float Calculate(float[] first, float[] other);
+        float Calculate(Row first, Row other);
     }
 }

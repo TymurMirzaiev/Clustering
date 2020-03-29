@@ -7,7 +7,7 @@ namespace Clustering.KMeans.Library.Data.Calculating
 {
     public class EuclideanDistance : ICalculationDistance
     {
-        public float Calculate(float[] first, float[] other)
+        public float Calculate(Row first, Row other)
         {
             int arraySize = first.Length;
             if (first.Length != other.Length)

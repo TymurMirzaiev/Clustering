@@ -14,7 +14,7 @@ namespace Clustering.KMeans.Library.Data.Calculating
             _calculationDistance = calculationDistance;
         }
 
-        public float Calculate(float[] first, float[] other)
+        public float Calculate(Row first, Row other)
         {
             return _calculationDistance.Calculate(first, other);
         }

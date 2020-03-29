@@ -3,6 +3,7 @@ using Clustering.KMeans.Library.Data.Contracts;
 using Clustering.KMeans.Library.MethodInitializations;
 using Clustering.KMeans.Library.Common;
 using Clustering.KMeans.Library.Data.Calculating;
+using System.Linq;
 
 namespace Clustering.KMeans.Library
 {
@@ -16,23 +17,34 @@ namespace Clustering.KMeans.Library
 
         }
 
-        public float[] FitPredict(IDataView data)
+        public IDataViewClustered FitPredict(IDataView data)
         {
-            var startCentroids = MethodInitialization.InitStartCentroidsPositions(data, NumberOfClusters);
-
+            Row[] startCentroids = MethodInitialization.InitStartCentroidsPositions(data, NumberOfClusters);
             IDataViewClustered dataViewClustered = InitDataViewClustered(data, startCentroids);
-            var newCentroids = MethodInitialization.CalculateCentroids(dataViewClustered);
-            // calculate interemediate value to all features for every centroid -> that's new centroids
-            // calulate closes distancec to all objects //
-            // calculate interemediate value to all features for every centroid -> that's new centroids
 
-            return new float[] { 1, 2, 3 };
+            bool exit = false;
+            do
+            {
+                Row[] nextCentroids = MethodInitialization.CalculateCentroids(dataViewClustered);
+
+                if (!startCentroids.SequenceEqual(nextCentroids, new RowComparer()))
+                {
+                    dataViewClustered = InitDataViewClustered(data, nextCentroids);
+                    startCentroids = (Row[])nextCentroids.Clone();
+                }
+                else
+                {
+                    exit = true;
+                }
+            } while (exit == false);
+
+            return dataViewClustered;
         }
 
-        private IDataViewClustered InitDataViewClustered(IDataView data, ICentroid[] startCentroids)
+        private IDataViewClustered InitDataViewClustered(IDataView data, Row[] startCentroids)
         {
             IDataViewClustered dataViewClustered = new DataViewClustered(data);
-            int lengthOfRows = dataViewClustered.Rows.GetLength(0);
+            int lengthOfRows = dataViewClustered.Rows.Length;
 
             DistanceDeterminator distanceDeterminator = new DistanceDeterminator(new EuclideanDistance());
 
@@ -41,12 +53,12 @@ namespace Clustering.KMeans.Library
                 int bestCluster = 0;
                 float bestDistance = float.MaxValue;
 
-                var row = data.Rows.GetRow(i);
+                var row = data.Rows[i];
 
                 for (int j = 0; j < startCentroids.Length; j++)
                 {
-                    float distance = distanceDeterminator.Calculate(row, startCentroids[j].Values);
-                    if(distance < bestDistance)
+                    float distance = distanceDeterminator.Calculate(row, startCentroids[j]);
+                    if (distance < bestDistance)
                     {
                         bestCluster = j;
                         bestDistance = distance;

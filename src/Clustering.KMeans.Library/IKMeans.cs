@@ -4,6 +4,6 @@ namespace Clustering.KMeans.Library
 {
     public interface IKMeans
     {
-        float[] FitPredict(IDataView data);
+        IDataViewClustered FitPredict(IDataView data);
     }
 }

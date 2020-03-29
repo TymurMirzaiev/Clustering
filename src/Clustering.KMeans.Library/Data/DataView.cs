@@ -6,15 +6,20 @@ namespace Clustering.KMeans.Library.Data
     public class DataView : IDataView
     {
         public string[] Columns { get; set; }
-        public float[,] Rows { get; set; }
+        public Row[] Rows { get; set; }
 
-        public DataView(Contracts.IDataView dataView)
+        public DataView(IDataView dataView)
         {
             this.Columns = dataView.Columns;
             this.Rows = dataView.Rows;
         }
 
-        public DataView(string[] columnNames, float[,] data)
+        public DataView()
+        {
+
+        }
+
+        public DataView(string[] columnNames, Row[] data)
         {
             Columns = columnNames;
             Rows = data;

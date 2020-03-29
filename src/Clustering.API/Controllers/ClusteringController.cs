@@ -28,7 +28,7 @@ namespace Clustering.API.Controllers
 
         [HttpPost, Route("/api/clustering")]
         [Produces("application/json")]
-        public float[] GetClustered(KMeans.Library.Data.DataView dataView)
+        public IDataViewClustered GetClustered(DataView dataView)
         {
             var kMeans = _kMeansBuilder
                 .SetNumberOfClusters(2)
@@ -42,10 +42,10 @@ namespace Clustering.API.Controllers
 
         [HttpGet, Route("/api/dataview")]
         [Produces("application/json")]
-        public async Task<KMeans.Library.Data.Contracts.IDataView> GetDataViewFromFile(IFormFile file)    // check extension
+        public async Task<IDataView> GetDataViewFromFile(IFormFile file)    // check extension
         {
             var filePath = Path.GetTempFileName();
-            KMeans.Library.Data.Contracts.IDataView data = null;
+            IDataView data = null;
 
             if (file != null)
             {

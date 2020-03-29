@@ -7,9 +7,8 @@ namespace Clustering.KMeans.Library.Data.Contracts
     {
         [JsonProperty("Columns")]
         string[] Columns { get; set; }
-        //public Row[] Rows { get; set; }
 
         [JsonProperty("Rows")]
-        float[,] Rows { get; set; }
+        public Row[] Rows { get; set; }
     }
 }

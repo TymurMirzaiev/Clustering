@@ -79,22 +79,22 @@ namespace Clustering.KMeans.Library.Data
 
                 var data = JsonConvert.DeserializeObject<float[,]>(dataTableSerialized, jsonSerializerSettings);
 
-                /*var size = data.GetLength(0);
+                var size = data.GetLength(0);
                 Row[] rows = new Row[size];
                 for(int k = 0; k < rows.Length; k++)
                 {
                     rows[k] = new Row();
                     var featuresSize = data.GetLength(1);
-                    rows[k].Features = new float[featuresSize];
+                    rows[k].Rows = new float[featuresSize];
                     for(int j = 0; j < featuresSize; j++)
                     {
-                        rows[k].Features[j] = data[k, j];
+                        rows[k].Rows[j] = data[k, j];
                     }
-                }*/
+                }
 
                 var res = new DataView(
                     columnNames: columnNames,
-                    data: data);
+                    data: rows);
 
                 return res;
             }
@@ -166,22 +166,22 @@ namespace Clustering.KMeans.Library.Data
 
                 var data = JsonConvert.DeserializeObject<float[,]>(dataTableSerialized, jsonSerializerSettings);
 
-                /*var size = data.GetLength(0);
+                var size = data.GetLength(0);
                 Row[] rows = new Row[size];
                 for (int k = 0; k < rows.Length; k++)
                 {
                     rows[k] = new Row();
                     var featuresSize = data.GetLength(1);
-                    rows[k].Features = new float[featuresSize];
+                    rows[k].Rows = new float[featuresSize];
                     for (int j = 0; j < featuresSize; j++)
                     {
-                        rows[k].Features[j] = data[k, j];
+                        rows[k].Rows[j] = data[k, j];
                     }
                 }
-                */
+                
                 var res = new DataView(
                     columnNames: columnNames,
-                    data: data);
+                    data: rows);
 
 
                 return res;

@@ -9,15 +9,14 @@ namespace Clustering.KMeans.Library.Data
     {
         public int[] Clustered { get; set; }
         public string[] Columns { get; set; }
-        public float[,] Rows { get; set; }
+        public Row[] Rows { get; set; }
 
         public DataViewClustered(IDataView dataView)
         {
             this.Columns = dataView.Columns;
             this.Rows = dataView.Rows;
 
-            int rowsSize = dataView.Rows.GetLength(0);
-            this.Clustered = new int[rowsSize];
+            this.Clustered = new int[Rows.Length];
         }
 
     }

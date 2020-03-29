@@ -7,8 +7,8 @@ namespace Clustering.KMeans.Library.Data.Contracts
     public interface ICentroid
     {
         /// <summary>
-        /// Values by features
+        /// Rows by features
         /// </summary>
-        float[] Values { get; set; }
+        Row Row { get; set; }
     }
 }

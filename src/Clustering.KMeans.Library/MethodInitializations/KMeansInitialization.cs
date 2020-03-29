@@ -9,45 +9,48 @@ namespace Clustering.KMeans.Library.MethodInitializations
 {
     public class KMeansInitialization : IMethodInitialization
     {
-        public ICentroid[] CalculateCentroids(IDataViewClustered dataViewClustered)
+        public Row[] CalculateCentroids(IDataViewClustered dataViewClustered)
         {
             var clusters = dataViewClustered.Clustered.Distinct();
-            var rowsSize = dataViewClustered.Rows.GetLength(0);
+            var rowsSize = dataViewClustered.Rows.Length;
+            var columnsLength = dataViewClustered.Columns.Length;
             var countOfClusters = clusters.Count();
 
-            // Get index's grouped by values of cluster
-            var dict = dataViewClustered.Clustered
-                .Select((x, i) => new { Value = x, Index = i })
-                .GroupBy(x => x.Value)
-                .ToDictionary(x => x.Key, x => x.Select(y => y.Index)
-                .ToArray());
-
-            ICentroid[] centroids = new Centroid[countOfClusters];
+            Row[] centroids = new Row[countOfClusters];
             for (int i = 0; i < countOfClusters; i++)
             {
-                centroids[i] = new Centroid();
+                centroids[i] = new Row();
+                centroids[i].Rows = new float[columnsLength];
             }
-            
-            for (int j = 0; j < countOfClusters; j++)
-            {
 
-                float sumByCluster = 0;
-                for (int i = 0; i < dict[j].Count(); i++)
+            for (int i = 0; i < rowsSize; i++)
+            {
+                int indexCluster = dataViewClustered.Clustered[i];
+                for (int j = 0; j < dataViewClustered.Columns.Length; j++)
                 {
-                    int index = dict[j][i];
-                    centroids[j].Values[i] += dataViewClustered.Rows[j, i];
+                    centroids[indexCluster].Rows[j] += dataViewClustered.Rows[i].Rows[j];
                 }
             }
 
+            var clustredBy = dataViewClustered.Clustered
+                .GroupBy(c => c)
+                .Select(c => new { Value = c.Key, Count = c.Count() })
+                .ToDictionary(c => c.Value, i => i.Count);
 
-            
+            for (int i = 0; i < centroids.Length; i++)
+            {
+                for(int j = 0; j < columnsLength; j++)
+                {
+                    centroids[i].Rows[j] /= clustredBy[i];
+                }
+            }
 
-            return null;
+            return centroids;
         }
 
-        public ICentroid[] InitStartCentroidsPositions(IDataView dataView, int n)
+        public Row[] InitStartCentroidsPositions(IDataView dataView, int n)
         {
-            int size = dataView.Rows.GetLength(0);
+            int size = dataView.Rows.Length;
             int[] randomNumbers = InitRandomNumbers(n, size);
             var centroids = InitCentroids(randomNumbers, dataView);
 
@@ -55,14 +58,14 @@ namespace Clustering.KMeans.Library.MethodInitializations
         }
 
         #region Init Centroids
-        private Centroid[] InitCentroids(int[] random, IDataView dataView)
+        private Row[] InitCentroids(int[] random, IDataView dataView)
         {
-            Centroid[] centroids = new Centroid[random.Length];
+            Row[] centroids = new Row[random.Length];
             int i = 0;
             do
             {
-                centroids[i] = new Centroid();
-                centroids[i].Values = dataView.Rows.GetRow(random[i]);
+                centroids[i] = new Row();
+                centroids[i] = dataView.Rows[random[i]];
                 i++;
             } while (random.Length != i);
 
