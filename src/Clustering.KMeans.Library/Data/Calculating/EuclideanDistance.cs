@@ -12,7 +12,7 @@ namespace Clustering.KMeans.Library.Data.Calculating
             int arraySize = first.Length;
             if (first.Length != other.Length)
             {
-                throw new ArgumentException("Array lengths are differents");
+                throw new ArgumentException("Array lengths are different");
             }
 
             float distance = 0;

@@ -22,22 +22,25 @@ namespace Clustering.KMeans.Library.MethodInitializations
                 .ToDictionary(x => x.Key, x => x.Select(y => y.Index)
                 .ToArray());
 
-            for (int j = 0; j < countOfClusters; j++)
-            {
-                float sumByCluster = 0;
-                for (int i = 0; i < dict[j].Count(); i++)
-                {
-                    int index = dict[j][i];
-
-                }
-            }
-
-
             ICentroid[] centroids = new Centroid[countOfClusters];
             for (int i = 0; i < countOfClusters; i++)
             {
                 centroids[i] = new Centroid();
             }
+            
+            for (int j = 0; j < countOfClusters; j++)
+            {
+
+                float sumByCluster = 0;
+                for (int i = 0; i < dict[j].Count(); i++)
+                {
+                    int index = dict[j][i];
+                    centroids[j].Values[i] += dataViewClustered.Rows[j, i];
+                }
+            }
+
+
+            
 
             return null;
         }
