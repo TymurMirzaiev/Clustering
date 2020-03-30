@@ -1,0 +1,4 @@
+C:\Users\timur\source\repos\Clustering\Clustering.Models\bin\Debug\netcoreapp3.1\Clustering.Models.deps.json
+C:\Users\timur\source\repos\Clustering\Clustering.Models\bin\Debug\netcoreapp3.1\Clustering.Models.dll
+C:\Users\timur\source\repos\Clustering\Clustering.Models\obj\Debug\netcoreapp3.1\Clustering.Models.AssemblyInfoInputs.cache
+C:\Users\timur\source\repos\Clustering\Clustering.Models\obj\Debug\netcoreapp3.1\Clustering.Models.AssemblyInfo.cs

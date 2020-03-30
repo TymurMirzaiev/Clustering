@@ -1,6 +1,6 @@
 ﻿using Clustering.KMeans.Library.MethodInitializations;
 
-namespace Clustering.KMeans.Library
+namespace Clustering.KMeans.Library.KMeans
 {
     public interface IKMeansBuilder
     {

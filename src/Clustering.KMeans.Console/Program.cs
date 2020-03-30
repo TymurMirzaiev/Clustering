@@ -1,8 +1,11 @@
 ﻿using System;
 using System.IO;
-using Clustering.KMeans.Library;
-using Clustering.KMeans.Library.Data;
+using Clustering.KMeans.Library.ClusteringQuality.Algorithm;
+using Clustering.KMeans.Library.ClusteringQuality.Contracts;
+using Clustering.KMeans.Library.Data.Calculating;
 using Clustering.KMeans.Library.Data.Contracts;
+using Clustering.KMeans.Library.Data.Import;
+using Clustering.KMeans.Library.KMeans;
 using Clustering.KMeans.Library.MethodInitializations;
 
 namespace Clustering.KMeans.ConsoleApp
@@ -27,22 +30,21 @@ namespace Clustering.KMeans.ConsoleApp
                         .SetNumberOfClusters(2)
                         .Build();
 
-            Library.Data.Contracts.IDataView data = DataReaderExcel.ReadDataFromExcel(
+            IDataView data = DataReaderExcel.ReadDataFromExcel(
                                                 path: path,
                                                 hasHeader: true,
                                                 worksheet: 3,
                                                 startColumn: 2);
 
             var clustered  = kMeans.FitPredict(data);
-            
-            foreach(var element in clustered)
-            {
-                Console.WriteLine(element);
-            }
-           
+
+            IQualityMeasurement qualityMeasurementAlgorithm = new IndexC();
+
+            var res = qualityMeasurementAlgorithm.EvaluateQuality(clustered, new EuclideanDistance());
+
+            Console.WriteLine(res);
 
             Console.Read();
         }
-
     }
 }

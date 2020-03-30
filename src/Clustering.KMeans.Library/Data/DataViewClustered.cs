@@ -11,6 +11,11 @@ namespace Clustering.KMeans.Library.Data
         public string[] Columns { get; set; }
         public Row[] Rows { get; set; }
 
+        public DataViewClustered()
+        {
+
+        }
+
         public DataViewClustered(IDataView dataView)
         {
             this.Columns = dataView.Columns;

@@ -6,11 +6,11 @@ using Clustering.KMeans.Library.Data.JsonConverters;
 using Newtonsoft.Json;
 using OfficeOpenXml;
 
-namespace Clustering.KMeans.Library.Data
+namespace Clustering.KMeans.Library.Data.Import
 {
     public static class DataReaderExcel
     {
-        public static Contracts.IDataView ReadDataFromExcel(
+        public static IDataView ReadDataFromExcel(
             string path,
             bool hasHeader = true,
             int worksheet = 3,
@@ -81,12 +81,12 @@ namespace Clustering.KMeans.Library.Data
 
                 var size = data.GetLength(0);
                 Row[] rows = new Row[size];
-                for(int k = 0; k < rows.Length; k++)
+                for (int k = 0; k < rows.Length; k++)
                 {
                     rows[k] = new Row();
                     var featuresSize = data.GetLength(1);
                     rows[k].Rows = new float[featuresSize];
-                    for(int j = 0; j < featuresSize; j++)
+                    for (int j = 0; j < featuresSize; j++)
                     {
                         rows[k].Rows[j] = data[k, j];
                     }
@@ -100,7 +100,7 @@ namespace Clustering.KMeans.Library.Data
             }
         }
 
-        public static Contracts.IDataView ReadDataFromExcel(
+        public static IDataView ReadDataFromExcel(
             FileStream stream,
             bool hasHeader = true,
             int worksheet = 3,
@@ -178,7 +178,7 @@ namespace Clustering.KMeans.Library.Data
                         rows[k].Rows[j] = data[k, j];
                     }
                 }
-                
+
                 var res = new DataView(
                     columnNames: columnNames,
                     data: rows);

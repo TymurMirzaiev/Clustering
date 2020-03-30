@@ -5,7 +5,7 @@ using Clustering.KMeans.Library.Common;
 using Clustering.KMeans.Library.Data.Calculating;
 using System.Linq;
 
-namespace Clustering.KMeans.Library
+namespace Clustering.KMeans.Library.KMeans
 {
     public class KMeans : IKMeans
     {

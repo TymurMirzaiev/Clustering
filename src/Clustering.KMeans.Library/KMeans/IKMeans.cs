@@ -1,6 +1,6 @@
 ﻿using Clustering.KMeans.Library.Data.Contracts;
 
-namespace Clustering.KMeans.Library
+namespace Clustering.KMeans.Library.KMeans
 {
     public interface IKMeans
     {

@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Clustering.KMeans.Library;
+using Clustering.KMeans.Library.ClusteringQuality.Algorithm;
+using Clustering.KMeans.Library.ClusteringQuality.Contracts;
 using Clustering.KMeans.Library.Data;
+using Clustering.KMeans.Library.Data.Calculating;
 using Clustering.KMeans.Library.Data.Contracts;
+using Clustering.KMeans.Library.Data.Import;
+using Clustering.KMeans.Library.KMeans;
 using Clustering.KMeans.Library.MethodInitializations;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -18,12 +22,19 @@ namespace Clustering.API.Controllers
     public class ClusteringController : ControllerBase
     {
         private readonly IKMeansBuilder _kMeansBuilder;
-        private readonly IWebHostEnvironment _appEnvironment;
 
-        public ClusteringController(IKMeansBuilder kMeansBuilder, IWebHostEnvironment appEnvironment)
+        public ClusteringController(IKMeansBuilder kMeansBuilder)
         {
             _kMeansBuilder = kMeansBuilder;
-            _appEnvironment = appEnvironment;
+        }
+
+        [HttpPost, Route("/api/clustering/evaluate")]
+        public ActionResult<float> EvaluateClustering(DataViewClustered dataViewClustered)
+        {
+            IQualityMeasurement evaluator = new IndexC();
+            var res = evaluator.EvaluateQuality(dataViewClustered, new EuclideanDistance());
+
+            return Ok(res);
         }
 
         [HttpPost, Route("/api/clustering")]
